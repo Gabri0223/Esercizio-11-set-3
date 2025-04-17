@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import Job from "./Job";
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 const MainSearch = () => {
   const [query, setQuery] = useState("");
@@ -36,13 +38,22 @@ const MainSearch = () => {
           <h1 className="display-1">Remote Jobs Search</h1>
         </Col>
         <Col xs={10} className="mx-auto">
-          <Form onSubmit={handleSubmit}>
+          <Form
+            onSubmit={handleSubmit}
+            className="d-flex justify-content-around"
+          >
             <Form.Control
+              className="w-75"
               type="search"
               value={query}
               onChange={handleChange}
               placeholder="type and press Enter"
             />
+            <Link to="/preferiti">
+              <Button variant="outline-success" className="ms-2">
+                Vai ai preferiti
+              </Button>
+            </Link>
           </Form>
         </Col>
         <Col xs={10} className="mx-auto mb-5">
